@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'quote.dart';
 import 'quote_failure.dart';
 
-abstract class IQuoteRepository {
-  Stream<Either<QuoteFailure, List<Quote>>> watchAllQuotes();
-  Future<Either<QuoteFailure, Unit>> updateLikes(String id);
+abstract class IQuotesRepository {
+  Stream<Either<QuotesFailure, List<Quote>>> watchAllQuotes();
+  Future<Either<QuotesFailure, Unit>> updateLikes(String id);
 }

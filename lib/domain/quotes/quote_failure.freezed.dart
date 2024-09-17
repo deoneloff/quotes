@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$QuoteFailure {
+mixin _$QuotesFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() database,
@@ -57,23 +57,23 @@ mixin _$QuoteFailure {
 }
 
 /// @nodoc
-abstract class $QuoteFailureCopyWith<$Res> {
-  factory $QuoteFailureCopyWith(
-          QuoteFailure value, $Res Function(QuoteFailure) then) =
-      _$QuoteFailureCopyWithImpl<$Res, QuoteFailure>;
+abstract class $QuotesFailureCopyWith<$Res> {
+  factory $QuotesFailureCopyWith(
+          QuotesFailure value, $Res Function(QuotesFailure) then) =
+      _$QuotesFailureCopyWithImpl<$Res, QuotesFailure>;
 }
 
 /// @nodoc
-class _$QuoteFailureCopyWithImpl<$Res, $Val extends QuoteFailure>
-    implements $QuoteFailureCopyWith<$Res> {
-  _$QuoteFailureCopyWithImpl(this._value, this._then);
+class _$QuotesFailureCopyWithImpl<$Res, $Val extends QuotesFailure>
+    implements $QuotesFailureCopyWith<$Res> {
+  _$QuotesFailureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of QuoteFailure
+  /// Create a copy of QuotesFailure
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -86,13 +86,13 @@ abstract class _$$DatabaseImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$DatabaseImplCopyWithImpl<$Res>
-    extends _$QuoteFailureCopyWithImpl<$Res, _$DatabaseImpl>
+    extends _$QuotesFailureCopyWithImpl<$Res, _$DatabaseImpl>
     implements _$$DatabaseImplCopyWith<$Res> {
   __$$DatabaseImplCopyWithImpl(
       _$DatabaseImpl _value, $Res Function(_$DatabaseImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of QuoteFailure
+  /// Create a copy of QuotesFailure
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -103,7 +103,7 @@ class _$DatabaseImpl extends _Database {
 
   @override
   String toString() {
-    return 'QuoteFailure.database()';
+    return 'QuotesFailure.database()';
   }
 
   @override
@@ -178,7 +178,7 @@ class _$DatabaseImpl extends _Database {
   }
 }
 
-abstract class _Database extends QuoteFailure {
+abstract class _Database extends QuotesFailure {
   const factory _Database() = _$DatabaseImpl;
   const _Database._() : super._();
 }
@@ -192,13 +192,13 @@ abstract class _$$UnexpectedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnexpectedImplCopyWithImpl<$Res>
-    extends _$QuoteFailureCopyWithImpl<$Res, _$UnexpectedImpl>
+    extends _$QuotesFailureCopyWithImpl<$Res, _$UnexpectedImpl>
     implements _$$UnexpectedImplCopyWith<$Res> {
   __$$UnexpectedImplCopyWithImpl(
       _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of QuoteFailure
+  /// Create a copy of QuotesFailure
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -209,7 +209,7 @@ class _$UnexpectedImpl extends _Unexpected {
 
   @override
   String toString() {
-    return 'QuoteFailure.unexpected()';
+    return 'QuotesFailure.unexpected()';
   }
 
   @override
@@ -284,7 +284,7 @@ class _$UnexpectedImpl extends _Unexpected {
   }
 }
 
-abstract class _Unexpected extends QuoteFailure {
+abstract class _Unexpected extends QuotesFailure {
   const factory _Unexpected() = _$UnexpectedImpl;
   const _Unexpected._() : super._();
 }

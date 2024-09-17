@@ -9,23 +9,23 @@ import '../../globals.dart';
 import '../../methods.dart';
 import 'quote_dto.dart';
 
-class QuoteRepository implements IQuoteRepository {
+class QuotesRepository implements IQuotesRepository {
   final FirebaseFirestore _firestore;
   final Ref ref;
 
-  QuoteRepository(
+  QuotesRepository(
     this._firestore,
     this.ref,
   );
 
   @override
-  Stream<Either<QuoteFailure, List<Quote>>> watchAllQuotes() {
+  Stream<Either<QuotesFailure, List<Quote>>> watchAllQuotes() {
     try {
       return _firestore
           .collection(quoteCollection)
           .snapshots()
           .map(
-            (snapshot) => right<QuoteFailure, List<Quote>>(
+            (snapshot) => right<QuotesFailure, List<Quote>>(
               snapshot.docs
                   .map(
                     (doc) => QuoteDto.fromFirestore(doc).toDomain(),
@@ -39,7 +39,7 @@ class QuoteRepository implements IQuoteRepository {
             'handleError: $e',
           );
           return left(
-            const QuoteFailure.unexpected(),
+            const QuotesFailure.unexpected(),
           );
         },
       );
@@ -49,7 +49,7 @@ class QuoteRepository implements IQuoteRepository {
       );
       return Stream.value(
         left(
-          const QuoteFailure.database(),
+          const QuotesFailure.database(),
         ),
       );
     } catch (e) {
@@ -58,14 +58,14 @@ class QuoteRepository implements IQuoteRepository {
       );
       return Stream.value(
         left(
-          const QuoteFailure.unexpected(),
+          const QuotesFailure.unexpected(),
         ),
       );
     }
   }
 
   @override
-  Future<Either<QuoteFailure, Unit>> updateLikes(String id) async {
+  Future<Either<QuotesFailure, Unit>> updateLikes(String id) async {
     try {
       await _firestore.collection(quoteCollection).doc(id).update({
         'likes': FieldValue.increment(1),
@@ -78,14 +78,14 @@ class QuoteRepository implements IQuoteRepository {
         'FirebaseException: ${e.message}',
       );
       return left(
-        const QuoteFailure.database(),
+        const QuotesFailure.database(),
       );
     } catch (e) {
       log(
         'Exception: $e',
       );
       return left(
-        const QuoteFailure.unexpected(),
+        const QuotesFailure.unexpected(),
       );
     }
   }
