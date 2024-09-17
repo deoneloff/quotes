@@ -46,3 +46,8 @@ app.*.map.json
 /android/app/release
 /android/key.properties
 
+# Firebase
+/utilities/quotes-10001-firebase-adminsdk-w4128-548db06cac.json
+
+# Python
+/.venv/
