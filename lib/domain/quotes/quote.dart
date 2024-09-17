@@ -5,6 +5,7 @@ part 'quote.freezed.dart';
 @freezed
 abstract class Quote with _$Quote {
   const factory Quote({
+    required String id,
     required String author,
     required String category,
     required String quote,

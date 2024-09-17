@@ -1,0 +1,1 @@
+const String quoteCollection = 'quotes ';

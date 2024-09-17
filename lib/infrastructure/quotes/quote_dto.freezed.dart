@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'quote.dart';
+part of 'quote_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,48 +14,63 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+QuoteDto _$QuoteDtoFromJson(Map<String, dynamic> json) {
+  return _QuoteDto.fromJson(json);
+}
+
 /// @nodoc
-mixin _$Quote {
+mixin _$QuoteDto {
+  String get id => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   String get quote => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
 
-  /// Create a copy of Quote
+  /// Serializes this QuoteDto to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of QuoteDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $QuoteCopyWith<Quote> get copyWith => throw _privateConstructorUsedError;
+  $QuoteDtoCopyWith<QuoteDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $QuoteCopyWith<$Res> {
-  factory $QuoteCopyWith(Quote value, $Res Function(Quote) then) =
-      _$QuoteCopyWithImpl<$Res, Quote>;
+abstract class $QuoteDtoCopyWith<$Res> {
+  factory $QuoteDtoCopyWith(QuoteDto value, $Res Function(QuoteDto) then) =
+      _$QuoteDtoCopyWithImpl<$Res, QuoteDto>;
   @useResult
-  $Res call({String author, String category, String quote, int likes});
+  $Res call(
+      {String id, String author, String category, String quote, int likes});
 }
 
 /// @nodoc
-class _$QuoteCopyWithImpl<$Res, $Val extends Quote>
-    implements $QuoteCopyWith<$Res> {
-  _$QuoteCopyWithImpl(this._value, this._then);
+class _$QuoteDtoCopyWithImpl<$Res, $Val extends QuoteDto>
+    implements $QuoteDtoCopyWith<$Res> {
+  _$QuoteDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Quote
+  /// Create a copy of QuoteDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? author = null,
     Object? category = null,
     Object? quote = null,
     Object? likes = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -77,34 +92,41 @@ class _$QuoteCopyWithImpl<$Res, $Val extends Quote>
 }
 
 /// @nodoc
-abstract class _$$QuoteImplCopyWith<$Res> implements $QuoteCopyWith<$Res> {
-  factory _$$QuoteImplCopyWith(
-          _$QuoteImpl value, $Res Function(_$QuoteImpl) then) =
-      __$$QuoteImplCopyWithImpl<$Res>;
+abstract class _$$QuoteDtoImplCopyWith<$Res>
+    implements $QuoteDtoCopyWith<$Res> {
+  factory _$$QuoteDtoImplCopyWith(
+          _$QuoteDtoImpl value, $Res Function(_$QuoteDtoImpl) then) =
+      __$$QuoteDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String author, String category, String quote, int likes});
+  $Res call(
+      {String id, String author, String category, String quote, int likes});
 }
 
 /// @nodoc
-class __$$QuoteImplCopyWithImpl<$Res>
-    extends _$QuoteCopyWithImpl<$Res, _$QuoteImpl>
-    implements _$$QuoteImplCopyWith<$Res> {
-  __$$QuoteImplCopyWithImpl(
-      _$QuoteImpl _value, $Res Function(_$QuoteImpl) _then)
+class __$$QuoteDtoImplCopyWithImpl<$Res>
+    extends _$QuoteDtoCopyWithImpl<$Res, _$QuoteDtoImpl>
+    implements _$$QuoteDtoImplCopyWith<$Res> {
+  __$$QuoteDtoImplCopyWithImpl(
+      _$QuoteDtoImpl _value, $Res Function(_$QuoteDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Quote
+  /// Create a copy of QuoteDto
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? author = null,
     Object? category = null,
     Object? quote = null,
     Object? likes = null,
   }) {
-    return _then(_$QuoteImpl(
+    return _then(_$QuoteDtoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -126,14 +148,21 @@ class __$$QuoteImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$QuoteImpl implements _Quote {
-  const _$QuoteImpl(
-      {required this.author,
+@JsonSerializable()
+class _$QuoteDtoImpl extends _QuoteDto {
+  const _$QuoteDtoImpl(
+      {required this.id,
+      required this.author,
       required this.category,
       required this.quote,
-      required this.likes});
+      this.likes = 0})
+      : super._();
 
+  factory _$QuoteDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$QuoteDtoImplFromJson(json);
+
+  @override
+  final String id;
   @override
   final String author;
   @override
@@ -141,18 +170,20 @@ class _$QuoteImpl implements _Quote {
   @override
   final String quote;
   @override
+  @JsonKey()
   final int likes;
 
   @override
   String toString() {
-    return 'Quote(author: $author, category: $category, quote: $quote, likes: $likes)';
+    return 'QuoteDto(id: $id, author: $author, category: $category, quote: $quote, likes: $likes)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$QuoteImpl &&
+            other is _$QuoteDtoImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.author, author) || other.author == author) &&
             (identical(other.category, category) ||
                 other.category == category) &&
@@ -160,25 +191,41 @@ class _$QuoteImpl implements _Quote {
             (identical(other.likes, likes) || other.likes == likes));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, author, category, quote, likes);
+  int get hashCode =>
+      Object.hash(runtimeType, id, author, category, quote, likes);
 
-  /// Create a copy of Quote
+  /// Create a copy of QuoteDto
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$QuoteImplCopyWith<_$QuoteImpl> get copyWith =>
-      __$$QuoteImplCopyWithImpl<_$QuoteImpl>(this, _$identity);
+  _$$QuoteDtoImplCopyWith<_$QuoteDtoImpl> get copyWith =>
+      __$$QuoteDtoImplCopyWithImpl<_$QuoteDtoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$QuoteDtoImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _Quote implements Quote {
-  const factory _Quote(
-      {required final String author,
+abstract class _QuoteDto extends QuoteDto {
+  const factory _QuoteDto(
+      {required final String id,
+      required final String author,
       required final String category,
       required final String quote,
-      required final int likes}) = _$QuoteImpl;
+      final int likes}) = _$QuoteDtoImpl;
+  const _QuoteDto._() : super._();
 
+  factory _QuoteDto.fromJson(Map<String, dynamic> json) =
+      _$QuoteDtoImpl.fromJson;
+
+  @override
+  String get id;
   @override
   String get author;
   @override
@@ -188,10 +235,10 @@ abstract class _Quote implements Quote {
   @override
   int get likes;
 
-  /// Create a copy of Quote
+  /// Create a copy of QuoteDto
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$QuoteImplCopyWith<_$QuoteImpl> get copyWith =>
+  _$$QuoteDtoImplCopyWith<_$QuoteDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

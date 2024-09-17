@@ -9,4 +9,4 @@ Random Quotes, downloaded from https://api-ninjas.com/api/quotes and stored in F
 - Upload 100 quotes to Firebase
 - Add project to github: https://github.com/deoneloff/quotes
 - Add domain layer
-- 
+- Add infrastructure layer

@@ -18,32 +18,38 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$QuoteFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() database,
     required TResult Function() unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? database,
     TResult? Function()? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? database,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Database value) database,
     required TResult Function(_Unexpected value) unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Database value)? database,
     TResult? Function(_Unexpected value)? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Database value)? database,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) =>
@@ -69,6 +75,112 @@ class _$QuoteFailureCopyWithImpl<$Res, $Val extends QuoteFailure>
 
   /// Create a copy of QuoteFailure
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$DatabaseImplCopyWith<$Res> {
+  factory _$$DatabaseImplCopyWith(
+          _$DatabaseImpl value, $Res Function(_$DatabaseImpl) then) =
+      __$$DatabaseImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DatabaseImplCopyWithImpl<$Res>
+    extends _$QuoteFailureCopyWithImpl<$Res, _$DatabaseImpl>
+    implements _$$DatabaseImplCopyWith<$Res> {
+  __$$DatabaseImplCopyWithImpl(
+      _$DatabaseImpl _value, $Res Function(_$DatabaseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuoteFailure
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$DatabaseImpl extends _Database {
+  const _$DatabaseImpl() : super._();
+
+  @override
+  String toString() {
+    return 'QuoteFailure.database()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DatabaseImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() database,
+    required TResult Function() unexpected,
+  }) {
+    return database();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? database,
+    TResult? Function()? unexpected,
+  }) {
+    return database?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? database,
+    TResult Function()? unexpected,
+    required TResult orElse(),
+  }) {
+    if (database != null) {
+      return database();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Database value) database,
+    required TResult Function(_Unexpected value) unexpected,
+  }) {
+    return database(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Database value)? database,
+    TResult? Function(_Unexpected value)? unexpected,
+  }) {
+    return database?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Database value)? database,
+    TResult Function(_Unexpected value)? unexpected,
+    required TResult orElse(),
+  }) {
+    if (database != null) {
+      return database(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Database extends QuoteFailure {
+  const factory _Database() = _$DatabaseImpl;
+  const _Database._() : super._();
 }
 
 /// @nodoc
@@ -112,6 +224,7 @@ class _$UnexpectedImpl extends _Unexpected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() database,
     required TResult Function() unexpected,
   }) {
     return unexpected();
@@ -120,6 +233,7 @@ class _$UnexpectedImpl extends _Unexpected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? database,
     TResult? Function()? unexpected,
   }) {
     return unexpected?.call();
@@ -128,6 +242,7 @@ class _$UnexpectedImpl extends _Unexpected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? database,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -140,6 +255,7 @@ class _$UnexpectedImpl extends _Unexpected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Database value) database,
     required TResult Function(_Unexpected value) unexpected,
   }) {
     return unexpected(this);
@@ -148,6 +264,7 @@ class _$UnexpectedImpl extends _Unexpected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Database value)? database,
     TResult? Function(_Unexpected value)? unexpected,
   }) {
     return unexpected?.call(this);
@@ -156,6 +273,7 @@ class _$UnexpectedImpl extends _Unexpected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Database value)? database,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
