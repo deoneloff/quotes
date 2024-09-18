@@ -51,6 +51,7 @@ class Quotes extends HookConsumerWidget {
     final numberOfQuotes = useState(quotes.length);
     if (quotes.isNotEmpty) {
       randomNumber = Random().nextInt(quotes.length - 1);
+      index.value = randomNumber;
       randomQuote = quotes[index.value];
       numberOfQuotes.value = quotes.length;
     }

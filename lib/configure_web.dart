@@ -2,14 +2,13 @@
 import 'dart:html' as html;
 
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'package:logging/logging.dart';
+
+import 'methods.dart';
 
 void configureWeb() {
-  final Logger log = Logger('configureWeb');
   setUrlStrategy(PathUrlStrategy());
   html.window.onBeforeUnload.listen((event) async {
-    log.fine('--> Browser event intercepted');
+    log('--> Browser event intercepted');
     event.stopImmediatePropagation();
   });
-  // html.window.
 }
