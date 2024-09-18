@@ -48,7 +48,7 @@ app.*.map.json
 
 # Firebase
 /utilities/quotes-10001-firebase-adminsdk-w4128-548db06cac.json
-/lib/firebase_options.dart
+lib/firebase_options.dart
 
 # Python
 /.venv/

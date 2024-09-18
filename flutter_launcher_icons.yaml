@@ -1,11 +1,11 @@
 flutter_launcher_icons:
-  android: "launcher_icon"
-  ios: true
-  remove_alpha_ios: true
-  image_path: "assets/logo_graphic.png"
+  android: false
+  ios: false
+  remove_alpha_ios: false
+  image_path: "assets/kabisa.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
-    image_path: "assets/logo_graphic.png"
+    image_path: "assets/kabisa.png"
     background_color: "#EFE3E9"
     theme_color: "#880E4F"

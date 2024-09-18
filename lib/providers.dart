@@ -30,7 +30,7 @@ final quotesNotifierProvider =
   ),
 );
 
-final loadedQuotesProvider = StateProvider<List<Quote>>((ref) {
+final loadedQuotesNotifierProvider = StateProvider<List<Quote>>((ref) {
   final productState = ref.watch(quotesNotifierProvider);
 
   return productState.maybeWhen(

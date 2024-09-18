@@ -9,6 +9,12 @@
             "firebase.json",
             "**/.*",
             "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
         ]
     },
     "flutter": {
@@ -17,7 +23,7 @@
                 "lib/firebase_options.dart": {
                     "projectId": "quotes-10001",
                     "configurations": {
-                        "web": "1:470516438082:web:01d29410d10d26a92189db"
+                        "web": "1:470516438082:web:51e2b68c3d930d022189db"
                     }
                 }
             }

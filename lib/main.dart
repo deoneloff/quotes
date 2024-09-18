@@ -19,7 +19,7 @@ void main() async {
     log('__ Firebase.initializeApp for web failed: $err');
   }
   runApp(
-    const ProviderScope(
+    ProviderScope(
       child: App(),
     ),
   );
