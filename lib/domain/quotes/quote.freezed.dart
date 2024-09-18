@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Quote {
   String get id => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
   String get quote => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
 
@@ -33,8 +32,7 @@ abstract class $QuoteCopyWith<$Res> {
   factory $QuoteCopyWith(Quote value, $Res Function(Quote) then) =
       _$QuoteCopyWithImpl<$Res, Quote>;
   @useResult
-  $Res call(
-      {String id, String author, String category, String quote, int likes});
+  $Res call({String id, String author, String quote, int likes});
 }
 
 /// @nodoc
@@ -54,7 +52,6 @@ class _$QuoteCopyWithImpl<$Res, $Val extends Quote>
   $Res call({
     Object? id = null,
     Object? author = null,
-    Object? category = null,
     Object? quote = null,
     Object? likes = null,
   }) {
@@ -66,10 +63,6 @@ class _$QuoteCopyWithImpl<$Res, $Val extends Quote>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
               as String,
       quote: null == quote
           ? _value.quote
@@ -90,8 +83,7 @@ abstract class _$$QuoteImplCopyWith<$Res> implements $QuoteCopyWith<$Res> {
       __$$QuoteImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id, String author, String category, String quote, int likes});
+  $Res call({String id, String author, String quote, int likes});
 }
 
 /// @nodoc
@@ -109,7 +101,6 @@ class __$$QuoteImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? author = null,
-    Object? category = null,
     Object? quote = null,
     Object? likes = null,
   }) {
@@ -121,10 +112,6 @@ class __$$QuoteImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
               as String,
       quote: null == quote
           ? _value.quote
@@ -144,7 +131,6 @@ class _$QuoteImpl implements _Quote {
   const _$QuoteImpl(
       {required this.id,
       required this.author,
-      required this.category,
       required this.quote,
       required this.likes});
 
@@ -153,15 +139,13 @@ class _$QuoteImpl implements _Quote {
   @override
   final String author;
   @override
-  final String category;
-  @override
   final String quote;
   @override
   final int likes;
 
   @override
   String toString() {
-    return 'Quote(id: $id, author: $author, category: $category, quote: $quote, likes: $likes)';
+    return 'Quote(id: $id, author: $author, quote: $quote, likes: $likes)';
   }
 
   @override
@@ -171,15 +155,12 @@ class _$QuoteImpl implements _Quote {
             other is _$QuoteImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.author, author) || other.author == author) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
             (identical(other.quote, quote) || other.quote == quote) &&
             (identical(other.likes, likes) || other.likes == likes));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, author, category, quote, likes);
+  int get hashCode => Object.hash(runtimeType, id, author, quote, likes);
 
   /// Create a copy of Quote
   /// with the given fields replaced by the non-null parameter values.
@@ -194,7 +175,6 @@ abstract class _Quote implements Quote {
   const factory _Quote(
       {required final String id,
       required final String author,
-      required final String category,
       required final String quote,
       required final int likes}) = _$QuoteImpl;
 
@@ -202,8 +182,6 @@ abstract class _Quote implements Quote {
   String get id;
   @override
   String get author;
-  @override
-  String get category;
   @override
   String get quote;
   @override

@@ -52,3 +52,6 @@ lib/firebase_options.dart
 
 # Python
 /.venv/
+
+# Other
+lib/secrets.dart

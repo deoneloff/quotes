@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quotes/globals.dart';
+import 'package:quotes/providers.dart';
 
 import '../../../methods.dart';
 
-class LoadQuotesButton extends StatelessWidget {
+class LoadQuotesButton extends ConsumerWidget {
   const LoadQuotesButton({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       onPressed: () {
-        log('Load more quotes');
+        ref.read(quotesNotifierProvider.notifier).loadQuotes();
       },
       child: const Row(
         children: [

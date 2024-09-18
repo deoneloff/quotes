@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'application/quotes/quotes_notifier.dart';
@@ -11,12 +12,16 @@ import 'infrastructure/quotes/quotes_repository.dart';
 final firebaseFirestoreProvider =
     Provider<FirebaseFirestore>((ref) => FirebaseFirestore.instance);
 
+//! Dio Provider
+final dioProvider = Provider<Dio>((ref) => Dio());
+
 //! FireStore Repository Providers (infrastructure layer)
 
 final quotesRepositoryProvider = Provider<IQuotesRepository>(
   (ref) => QuotesRepository(
-    ref.watch(firebaseFirestoreProvider),
     ref,
+    ref.watch(firebaseFirestoreProvider),
+    ref.watch(dioProvider),
   ),
 );
 

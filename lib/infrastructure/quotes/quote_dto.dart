@@ -12,7 +12,6 @@ abstract class QuoteDto with _$QuoteDto {
   const factory QuoteDto({
     required String id,
     required String author,
-    required String category,
     required String quote,
     @Default(0) int likes,
   }) = _QuoteDto;
@@ -21,7 +20,6 @@ abstract class QuoteDto with _$QuoteDto {
     return Quote(
       id: id,
       author: author,
-      category: category,
       quote: quote,
       likes: likes,
     );
@@ -31,9 +29,18 @@ abstract class QuoteDto with _$QuoteDto {
     return QuoteDto(
       id: quote.id,
       author: quote.author,
-      category: quote.category,
       quote: quote.quote,
       likes: quote.likes,
+    );
+  }
+
+  factory QuoteDto.fromApi(Map<String, dynamic> json) {
+    final uniqueId = DateTime.now().millisecondsSinceEpoch.toString();
+    return QuoteDto(
+      id: uniqueId,
+      author: json['a'] as String,
+      quote: json['q'] as String,
+      likes: 0,
     );
   }
 

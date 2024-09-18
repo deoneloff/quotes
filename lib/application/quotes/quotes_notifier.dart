@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:quotes/domain/quotes/quote_failure.dart';
+import 'package:quotes/domain/quotes/quotes_failure.dart';
 
 import '../../domain/quotes/i_quotes_repository.dart';
 import '../../domain/quotes/quote.dart';
@@ -43,6 +43,14 @@ class QuotesNotifier extends StateNotifier<QuotesState> {
 
   Future<void> updateLikes(String id) async {
     final failureOrUnit = await repository.updateLikes(id);
+    failureOrUnit.fold(
+      (failure) => null,
+      (unit) => null,
+    );
+  }
+
+  Future<void> loadQuotes() async {
+    final failureOrUnit = await repository.loadQuotes();
     failureOrUnit.fold(
       (failure) => null,
       (unit) => null,

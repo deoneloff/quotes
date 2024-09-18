@@ -22,7 +22,6 @@ QuoteDto _$QuoteDtoFromJson(Map<String, dynamic> json) {
 mixin _$QuoteDto {
   String get id => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
   String get quote => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
 
@@ -41,8 +40,7 @@ abstract class $QuoteDtoCopyWith<$Res> {
   factory $QuoteDtoCopyWith(QuoteDto value, $Res Function(QuoteDto) then) =
       _$QuoteDtoCopyWithImpl<$Res, QuoteDto>;
   @useResult
-  $Res call(
-      {String id, String author, String category, String quote, int likes});
+  $Res call({String id, String author, String quote, int likes});
 }
 
 /// @nodoc
@@ -62,7 +60,6 @@ class _$QuoteDtoCopyWithImpl<$Res, $Val extends QuoteDto>
   $Res call({
     Object? id = null,
     Object? author = null,
-    Object? category = null,
     Object? quote = null,
     Object? likes = null,
   }) {
@@ -74,10 +71,6 @@ class _$QuoteDtoCopyWithImpl<$Res, $Val extends QuoteDto>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
               as String,
       quote: null == quote
           ? _value.quote
@@ -99,8 +92,7 @@ abstract class _$$QuoteDtoImplCopyWith<$Res>
       __$$QuoteDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id, String author, String category, String quote, int likes});
+  $Res call({String id, String author, String quote, int likes});
 }
 
 /// @nodoc
@@ -118,7 +110,6 @@ class __$$QuoteDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? author = null,
-    Object? category = null,
     Object? quote = null,
     Object? likes = null,
   }) {
@@ -130,10 +121,6 @@ class __$$QuoteDtoImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
               as String,
       quote: null == quote
           ? _value.quote
@@ -153,7 +140,6 @@ class _$QuoteDtoImpl extends _QuoteDto {
   const _$QuoteDtoImpl(
       {required this.id,
       required this.author,
-      required this.category,
       required this.quote,
       this.likes = 0})
       : super._();
@@ -166,8 +152,6 @@ class _$QuoteDtoImpl extends _QuoteDto {
   @override
   final String author;
   @override
-  final String category;
-  @override
   final String quote;
   @override
   @JsonKey()
@@ -175,7 +159,7 @@ class _$QuoteDtoImpl extends _QuoteDto {
 
   @override
   String toString() {
-    return 'QuoteDto(id: $id, author: $author, category: $category, quote: $quote, likes: $likes)';
+    return 'QuoteDto(id: $id, author: $author, quote: $quote, likes: $likes)';
   }
 
   @override
@@ -185,16 +169,13 @@ class _$QuoteDtoImpl extends _QuoteDto {
             other is _$QuoteDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.author, author) || other.author == author) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
             (identical(other.quote, quote) || other.quote == quote) &&
             (identical(other.likes, likes) || other.likes == likes));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, author, category, quote, likes);
+  int get hashCode => Object.hash(runtimeType, id, author, quote, likes);
 
   /// Create a copy of QuoteDto
   /// with the given fields replaced by the non-null parameter values.
@@ -216,7 +197,6 @@ abstract class _QuoteDto extends QuoteDto {
   const factory _QuoteDto(
       {required final String id,
       required final String author,
-      required final String category,
       required final String quote,
       final int likes}) = _$QuoteDtoImpl;
   const _QuoteDto._() : super._();
@@ -228,8 +208,6 @@ abstract class _QuoteDto extends QuoteDto {
   String get id;
   @override
   String get author;
-  @override
-  String get category;
   @override
   String get quote;
   @override
