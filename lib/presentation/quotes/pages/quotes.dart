@@ -10,8 +10,10 @@ import 'package:quotes/presentation/quotes/widgets/load_quotes_button.dart';
 
 import '../../../methods.dart';
 import '../../../providers.dart';
+import '../widgets/liked_quotes_table.dart';
 import '../widgets/quote_card.dart';
 import '../widgets/refresh_quote_button.dart';
+import '../widgets/show_liked_quotes_button.dart';
 
 @RoutePage()
 class Quotes extends HookConsumerWidget {
@@ -28,17 +30,22 @@ class Quotes extends HookConsumerWidget {
       );
     });
     int likedQuotes = 0;
+    List<Quote> likedQuotesList = [];
     final List<Quote> quotes =
         ref.watch<QuotesState>(quotesNotifierProvider).maybeWhen(
               orElse: () => const [],
               loaded: (quotes) {
                 likedQuotes = quotes.where((quote) => quote.likes > 0).length;
+                likedQuotesList =
+                    quotes.where((quote) => quote.likes > 0).toList();
                 return quotes;
               },
             );
+    likedQuotesList.sort((a, b) => b.likes.compareTo(a.likes));
 
     int randomNumber = 0;
     late Quote randomQuote;
+    final showLikedQuotes = useState(false);
     final index = useState(randomNumber);
     final numberOfQuotes = useState(quotes.length);
     if (quotes.isNotEmpty) {
@@ -51,7 +58,7 @@ class Quotes extends HookConsumerWidget {
       body: Stack(
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               if (numberOfQuotes.value > 0)
@@ -63,7 +70,10 @@ class Quotes extends HookConsumerWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const LoadQuotesButton(),
+                  ShowLikedQuotesButton(showLikedQuotes: showLikedQuotes),
+                  LoadQuotesButton(
+                    counter: numberOfQuotes.value,
+                  ),
                   const SizedBox(width: 10),
                   RefreshQuoteButton(
                     index: index,
@@ -71,6 +81,12 @@ class Quotes extends HookConsumerWidget {
                   ),
                 ],
               ),
+              if (showLikedQuotes.value)
+                LikedQuotesTable(likedQuotesList: likedQuotesList)
+              else
+                const SizedBox(
+                  height: 200,
+                ),
             ],
           ),
           Positioned(

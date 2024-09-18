@@ -8,3 +8,9 @@ const String logo = 'assets/kabisa.png';
 const String splashMessage = 'Almost there...';
 const String apiUrl =
     'https://zenquotes.io/api/quotes/cc110c1bf168953bacda293a5e2d1a00';
+const int maxQuotes = 20;
+const String maxQuotesMessage =
+    'Sorry, you have reached the maximum available quotes';
+const String showLikedQuotesMessage = 'Show liked quotes';
+const String dismissLikedQuotesMessage = 'Dismiss liked quotes';
+const String refreshQuoteMessage = 'Refresh quote';

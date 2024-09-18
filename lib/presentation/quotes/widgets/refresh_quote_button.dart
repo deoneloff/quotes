@@ -20,6 +20,7 @@ class RefreshQuoteButton extends StatelessWidget {
         index.value = randomNumberZeroTo(numberOfQuotes.value - 1);
       },
       child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(getRandomQuote),
           Icon(Icons.refresh),
