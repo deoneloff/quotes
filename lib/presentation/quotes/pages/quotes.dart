@@ -75,7 +75,10 @@ class Quotes extends HookConsumerWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ShowLikedQuotesButton(showLikedQuotes: showLikedQuotes),
+                  ShowLikedQuotesButton(
+                    showLikedQuotes: showLikedQuotes,
+                  ),
+                  const SizedBox(width: 10),
                   LoadQuotesButton(
                     counter: numberOfQuotes.value,
                   ),
