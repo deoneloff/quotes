@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'application/quotes/quotes_notifier.dart';
 import 'domain/quotes/i_quotes_repository.dart';
+import 'domain/quotes/quote.dart';
 import 'infrastructure/quotes/quotes_repository.dart';
 
 //! Firebase Providers
@@ -28,3 +29,12 @@ final quotesNotifierProvider =
     repository: ref.watch(quotesRepositoryProvider),
   ),
 );
+
+final loadedQuotesProvider = StateProvider<List<Quote>>((ref) {
+  final productState = ref.watch(quotesNotifierProvider);
+
+  return productState.maybeWhen(
+    loaded: (quotes) => quotes,
+    orElse: () => [],
+  );
+});

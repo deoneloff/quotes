@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 
 void log(String message) {
@@ -5,4 +7,8 @@ void log(String message) {
     final timeStamp = DateTime.now().toIso8601String();
     debugPrint('[$timeStamp] $message');
   }
+}
+
+int randomNumberZeroTo(int max) {
+  return Random().nextInt(max);
 }

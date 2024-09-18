@@ -42,6 +42,7 @@ abstract class QuoteDto with _$QuoteDto {
 
   factory QuoteDto.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data()! as Map<String, dynamic>;
+    data['id'] = doc.id;
     return QuoteDto.fromJson(data);
   }
 }

@@ -6,6 +6,7 @@ import 'package:quotes/domain/quotes/quote_failure.dart';
 
 import '../../domain/quotes/i_quotes_repository.dart';
 import '../../domain/quotes/quote.dart';
+import '../../methods.dart';
 
 part 'quotes_notifier.freezed.dart';
 
@@ -31,7 +32,10 @@ class QuotesNotifier extends StateNotifier<QuotesState> {
       (failureOrCustomers) {
         state = failureOrCustomers.fold(
           (failure) => state = QuotesState.failure(failure),
-          (quotes) => state = QuotesState.loaded(quotes),
+          (quotes) {
+            log('${quotes.length} quotes loaded');
+            return state = QuotesState.loaded(quotes);
+          },
         );
       },
     );
