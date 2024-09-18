@@ -94,6 +94,30 @@ class QuotesRepository implements IQuotesRepository {
   }
 
   @override
+  Future<Either<QuotesFailure, Unit>> storeQuote(Quote quote) async {
+    try {
+      final quoteDto = QuoteDto.fromDomain(quote);
+      final id = quote.id;
+      _firestore.collection(quoteCollection).doc(id).set(quoteDto.toJson());
+      return right(unit);
+    } on FirebaseException catch (e) {
+      log(
+        'FirebaseException: ${e.message}',
+      );
+      return left(
+        const QuotesFailure.database(),
+      );
+    } catch (e) {
+      log(
+        'Exception: $e',
+      );
+      return left(
+        const QuotesFailure.unexpected(),
+      );
+    }
+  }
+
+  @override
   Future<Either<QuotesFailure, List<Quote>>> loadQuotes() async {
     try {
       final response = await _dio.post(

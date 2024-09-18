@@ -29,8 +29,8 @@ class QuotesNotifier extends StateNotifier<QuotesState> {
     required this.ref,
   }) : super(const QuotesState.initial()) {
     _quotesStateChangesSubscription = repository.watchAllQuotes().listen(
-      (failureOrCustomers) {
-        state = failureOrCustomers.fold(
+      (failureOrQuotes) {
+        state = failureOrQuotes.fold(
           (failure) => state = QuotesState.failure(failure),
           (quotes) {
             log('${quotes.length} quotes loaded');
@@ -51,10 +51,16 @@ class QuotesNotifier extends StateNotifier<QuotesState> {
 
   Future<void> loadQuotes() async {
     final failureOrUnit = await repository.loadQuotes();
-    failureOrUnit.fold(
-      (failure) => null,
-      (unit) => null,
+    final List<Quote> quotes = failureOrUnit.fold(
+      (failure) => [],
+      (quotes) => quotes,
     );
+    for (final quote in quotes) {
+      final uniqueId = DateTime.now().millisecondsSinceEpoch.toString();
+      final updatedQuote = quote.copyWith(id: uniqueId);
+      log('quote.quote: ${updatedQuote.quote} id: ${updatedQuote.id}');
+      await repository.storeQuote(updatedQuote);
+    }
   }
 
   @override

@@ -31,20 +31,33 @@ class QuoteCard extends ConsumerWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 12),
             ),
-            trailing: InkWell(
-              onTap: () {
-                ref
-                    .read(quotesNotifierProvider.notifier)
-                    .updateLikes(randomQuote.id);
-              },
-              child: randomQuote.likes > 0
-                  ? const Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                    )
-                  : const Icon(
-                      Icons.favorite_outline_outlined,
+            trailing: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {
+                    ref
+                        .read(quotesNotifierProvider.notifier)
+                        .updateLikes(randomQuote.id);
+                  },
+                  child: randomQuote.likes > 0
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : const Icon(
+                          Icons.favorite_outline_outlined,
+                        ),
+                ),
+                if (randomQuote.likes > 0)
+                  Text(
+                    randomQuote.likes.toString(),
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
                     ),
+                  ),
+              ],
             ),
           ),
         ),

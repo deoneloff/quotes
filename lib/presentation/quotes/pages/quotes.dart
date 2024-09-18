@@ -6,6 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quotes/application/quotes/quotes_notifier.dart';
 import 'package:quotes/domain/quotes/quote.dart';
+import 'package:quotes/globals.dart';
 import 'package:quotes/presentation/quotes/widgets/load_quotes_button.dart';
 
 import '../../../methods.dart';
@@ -55,6 +56,10 @@ class Quotes extends HookConsumerWidget {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(appTitle),
+        centerTitle: false,
+      ),
       body: Stack(
         children: [
           Column(
